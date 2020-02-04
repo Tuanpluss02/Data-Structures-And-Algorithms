@@ -11,7 +11,6 @@ void DFS(int s, int d)
 {
     visited[s] = true;
     path.push_back(s);
-    // cout << s << " ";
     if (s == d)
     {
         return;
@@ -27,16 +26,14 @@ void DFS(int s, int d)
     }
 }
 
-void DFS(int s, bool print)
+void DFS(int s)
 {
     visited[s] = true;
-    if (print)
-        cout << s << " ";
     for (int v : Graph[s])
     {
         if (!visited[v])
         {
-            DFS(v, print);
+            DFS(v);
         }
     }
 }
@@ -51,7 +48,6 @@ void BFS(int s, int d)
         int u = q.front();
         q.pop();
         path.push_back(u);
-        // cout << u << " ";
         if (u == d)
         {
             return;
@@ -86,86 +82,3 @@ void BFS(int s)
         }
     }
 }
-
-void testDFS()
-{
-    DFS(start, finish);
-    if (path.back() == finish)
-    {
-        cout << "path " << start << "->" << finish << "using DFS: ";
-        for (auto i : path)
-        {
-            cout << i << " ";
-        }
-        cout << endl;
-    }
-    else
-    {
-        cout << "Not Found" << endl;
-    }
-}
-void testBFS()
-{
-    BFS(start, finish);
-    if (path.back() == finish)
-    {
-        cout << "BFS path " << start << "->" << finish << " : ";
-        for (auto i : path)
-        {
-            cout << i << " ";
-        }
-        cout << endl;
-    }
-    else
-    {
-        cout << "Not Found" << endl;
-    }
-}
-void reset()
-{
-    path.clear();
-    memset(visited, false, sizeof(visited));
-}
-
-int main()
-{
-    int u, v;
-    cin >> u >> v;
-    cin >> vertices >> edges;
-    for (int i = 0; i < edges; i++)
-    {
-        Graph[u].push_back(v);
-        Graph[v].push_back(u);
-        finish = vertices;
-    }
-    cin >> start;
-    cin >> finish;
-    // test BFS and DFS
-    testDFS();
-    reset();
-    testBFS();
-    return 0;
-}
-/* input:
-13 15
-1 2
-2 3
-3 5
-2 4
-4 6
-2 6
-1 4
-1 7
-7 8
-7 9
-7 10
-8 11
-8 12
-9 12
-12 13
-2 6
-
-output:
-  DFS path 2->6 : 2 1 4 6
-  BFS path 2->6 : 2 1 3 4 6
-*/
