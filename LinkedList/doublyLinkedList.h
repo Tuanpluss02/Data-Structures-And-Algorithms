@@ -21,7 +21,8 @@ private:
 
 public:
     doublyLinkedList();
-    ~doublyLinkedList();
+    ~doublyLinkedList(); 
+    size_t size();
     void add(ll data);
     void add(ll data, size_t position);
     void add(Node *node);
@@ -30,7 +31,7 @@ public:
     void printBackward();
     void printNode(size_t position);
     void reverse();
-    size_t size();
+   
     void sortDescending();
     void sortAscending();
 };
