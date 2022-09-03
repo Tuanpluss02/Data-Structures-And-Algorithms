@@ -21,7 +21,7 @@ private:
 
 public:
     doublyLinkedList();
-    ~doublyLinkedList(); 
+    ~doublyLinkedList();
     size_t size();
     void add(ll data);
     void add(ll data, size_t position);
@@ -31,7 +31,6 @@ public:
     void printBackward();
     void printNode(size_t position);
     void reverse();
-   
     void sortDescending();
     void sortAscending();
 };
@@ -183,7 +182,7 @@ void doublyLinkedList::printForward()
     }
     size_t index = 0;
     Node *temp = head;
-    std::cout << "The list contains: " << std::endl;
+    std::cout << "The list when printing forward: " << std::endl;
     std::cout << "------------------------" << std::endl;
     while (temp != NULL)
     {
@@ -203,7 +202,7 @@ void doublyLinkedList::printBackward()
     }
     size_t index = 0;
     Node *temp = tail;
-    std::cout << "The list contains: " << std::endl;
+    std::cout << "The list when printing backward: " << std::endl;
     std::cout << "------------------------" << std::endl;
     while (temp != NULL)
     {
