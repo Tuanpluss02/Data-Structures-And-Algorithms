@@ -31,7 +31,6 @@ public:
     void printBackward();
     void printNode(size_t position);
     void reverse();
-   
     void sortDescending();
     void sortAscending();
 };
