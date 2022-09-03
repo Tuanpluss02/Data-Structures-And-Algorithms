@@ -201,4 +201,60 @@ void singlyLinkedList::print(size_t position)
     std::cout << "------------------------" << std::endl;
 }
 
+void Swap(Node *a, Node *b)
+{
+    ll temp = a->data;
+    a->data = b->data;
+    b->data = temp;
+}
+
+void singlyLinkedList::sort()
+{
+    if (length == 0)
+    {
+        std::cout << "The list is empty." << std::endl;
+        return;
+    }
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        Node *current = temp;
+        while (current->next != NULL)
+        {
+            if (current->data > current->next->data)
+            {
+                ll temp = current->data;
+                current->data = current->next->data;
+                current->next->data = temp;
+            }
+            current = current->next;
+        }
+        temp = temp->next;
+    }
+}
+
+void singlyLinkedList::sort()
+{
+    if (length == 0)
+    {
+        std::cout << "The list is empty." << std::endl;
+        return;
+    }
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        Node *current = temp;
+        while (current->next != NULL)
+        {
+            if (current->data > current->next->data)
+            {
+                ll temp = current->data;
+                current->data = current->next->data;
+                current->next->data = temp;
+            }
+            current = current->next;
+        }
+        temp = temp->next;
+    }
+}
 #endif

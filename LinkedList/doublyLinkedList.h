@@ -1,8 +1,10 @@
 #ifndef __doublyLinkedList__StormX
 #define __doublyLinkedList__StormX
+
 #define ll long long
 
 #include <iostream>
+
 struct Node
 {
     ll data;
@@ -24,10 +26,13 @@ public:
     void add(ll data, size_t position);
     void add(Node *node);
     void remove(size_t position);
-    void print();
-    void print(size_t position);
+    void printForward();
+    void printBackward();
+    void printNode(size_t position);
+    void reverse();
     size_t size();
-    void sort();
+    void sortDescending();
+    void sortAscending();
 };
 
 doublyLinkedList::doublyLinkedList()
@@ -168,7 +173,7 @@ void doublyLinkedList::remove(size_t position)
     length--;
 }
 
-void doublyLinkedList::print()
+void doublyLinkedList::printForward()
 {
     if (length == 0)
     {
@@ -188,7 +193,27 @@ void doublyLinkedList::print()
     std::cout << "------------------------" << std::endl;
 }
 
-void doublyLinkedList::print(size_t position)
+void doublyLinkedList::printBackward()
+{
+    if (length == 0)
+    {
+        std::cout << "The list is empty." << std::endl;
+        return;
+    }
+    size_t index = 0;
+    Node *temp = tail;
+    std::cout << "The list contains: " << std::endl;
+    std::cout << "------------------------" << std::endl;
+    while (temp != NULL)
+    {
+        std::cout << "Node " << length - index << ": " << temp->data << std::endl;
+        temp = temp->prev;
+        index++;
+    }
+    std::cout << "------------------------" << std::endl;
+}
+
+void doublyLinkedList::printNode(size_t position)
 {
     if (position > length || position <= 0)
     {
@@ -203,6 +228,76 @@ void doublyLinkedList::print(size_t position)
     }
     std::cout << "Node " << position << ": " << temp->data << std::endl;
     std::cout << "------------------------" << std::endl;
+}
+
+void doublyLinkedList::reverse()
+{
+    if (length == 0)
+    {
+        std::cout << "The list is empty." << std::endl;
+        return;
+    }
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        Node *temp2 = temp->next;
+        temp->next = temp->prev;
+        temp->prev = temp2;
+        temp = temp2;
+    }
+    Node *temp3 = head;
+    head = tail;
+    tail = temp3;
+}
+
+void doublyLinkedList::sortAscending()
+{
+    if (length == 0)
+    {
+        std::cout << "The list is empty." << std::endl;
+        return;
+    }
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        Node *temp2 = temp->next;
+        while (temp2 != NULL)
+        {
+            if (temp->data > temp2->data)
+            {
+                ll tempData = temp->data;
+                temp->data = temp2->data;
+                temp2->data = tempData;
+            }
+            temp2 = temp2->next;
+        }
+        temp = temp->next;
+    }
+}
+
+void doublyLinkedList::sortDescending()
+{
+    if (length == 0)
+    {
+        std::cout << "The list is empty." << std::endl;
+        return;
+    }
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        Node *temp2 = temp->next;
+        while (temp2 != NULL)
+        {
+            if (temp->data < temp2->data)
+            {
+                ll tempData = temp->data;
+                temp->data = temp2->data;
+                temp2->data = tempData;
+            }
+            temp2 = temp2->next;
+        }
+        temp = temp->next;
+    }
 }
 
 #endif
