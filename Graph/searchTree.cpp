@@ -4,23 +4,27 @@ using namespace std;
 const int MAX = 1e5 + 15;
 int n, m, start, finish;
 
-vector<int> Graph[MAX];
+vector<int> Graph[MAX], path;
 bool visited[MAX];
 
 void DFS(int s = 1, int d = n)
 {
     visited[s] = true;
-    if (s == d && d != n)
+    path.push_back(s);
+    // cout << s << " ";
+    if (s == d)
     {
-        cout << "found" << endl;
         return;
     }
-    cout << s << " ";
-    for (int i = 0; i < Graph[s].size(); i++)
+    for (int v : Graph[s])
     {
-        if (!visited[Graph[s][i]])
+        if (!visited[v])
         {
-            DFS(Graph[s][i], d);
+            DFS(v, d);
+            if (path.back() == d)
+            {
+                return;
+            }
         }
     }
 }
@@ -34,18 +38,18 @@ void BFS(int s = 1, int d = n)
     {
         int u = q.front();
         q.pop();
-        if (u == d && d != n)
+        path.push_back(u);
+        // cout << u << " ";
+        if (u == d)
         {
-            cout << "Found" << endl;
             return;
         }
-        cout << u << " ";
-        for (int i = 0; i < Graph[u].size(); i++)
+        for (int v : Graph[u])
         {
-            if (!visited[Graph[u][i]])
+            if (!visited[v])
             {
-                visited[Graph[u][i]] = true;
-                q.push(Graph[u][i]);
+                visited[v] = true;
+                q.push(v);
             }
         }
     }
@@ -59,16 +63,39 @@ int main()
         int u, v;
         cin >> u >> v;
         Graph[u].push_back(v);
-        Graph[v].push_back(u);
+        // Graph[v].push_back(u);
     }
     finish = n;
     cin >> start;
     cin >> finish;
-    cout << "DFS path " << start << "->" << finish << " : ";
     DFS(start, finish);
+    if (path.back() == finish)
+    {
+        cout << "DFS path " << start << "->" << finish << " : ";
+        for (auto i : path)
+        {
+            cout << i << " ";
+        }
+    }
+    else
+    {
+        cout << "Not Found";
+    }
     cout << endl;
+    path.clear();
     memset(visited, false, sizeof(visited));
-    cout << "BFS path " << start << "->" << finish << " : ";
     BFS(start, finish);
+    if (path.back() == finish)
+    {
+        cout << "BFS path " << start << "->" << finish << " : ";
+        for (auto i : path)
+        {
+            cout << i << " ";
+        }
+    }
+    else
+    {
+        cout << "Not Found";
+    }
     return 0;
 }
