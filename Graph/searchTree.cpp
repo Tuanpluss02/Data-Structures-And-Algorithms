@@ -63,7 +63,7 @@ int main()
         int u, v;
         cin >> u >> v;
         Graph[u].push_back(v);
-        // Graph[v].push_back(u);
+        Graph[v].push_back(u);
     }
     finish = n;
     cin >> start;
