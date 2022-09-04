@@ -204,7 +204,7 @@ void circularLinkedList::print()
     std::cout << "Node " << index + 1 << ": " << temp->data << std::endl;
     std::cout << "------------------------" << std::endl;
 }
-
+// print the node at given position
 void circularLinkedList::print(size_t position)
 {
     if (position > length || position <= 0)
