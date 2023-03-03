@@ -4,7 +4,7 @@
     ios_base::sync_with_stdio(0); \
     cin.tie(0);                   \
     cout.tie(0);
-#define clear() cin.ignore(numeric_limits<streamsize>::max(), '\n');
+#define clean() cin.ignore(numeric_limits<streamsize>::max(), '\n');
 #define pb push_back
 #define fi first
 #define se second
@@ -12,8 +12,8 @@
 #define ld long double
 #define ll long long
 #define lli unsigned long long int
-#define For(i, a, b) for (int i = a; i < b; ++i)
-#define Forr(i, a, b) for (int i = a; i >= b; --i)
+#define For(i, a, b) for (ll i = a; i < b; ++i)
+#define Forr(i, a, b) for (ll i = a; i >= b; --i)
 #define vec vector<ll>
 #define sortu(c) sort(c.begin(), c.end())
 #define sortd(c) sort(c.rbegin(), c.rend())
@@ -24,41 +24,25 @@ using namespace std;
 
 void solve()
 {
-    ll a, b;
-    cin >> a >> b;
-    string s, tmp = "";
-    map<char, int> m;
-    vector<string> v;
-    cin >> s;
-    char c = s[0];
-    tmp += c;
-    for (auto i : s)
+    int n;
+    cin >> n;
+    queue<string> q;
+    q.push("9");
+    while (true)
     {
-        m[i]++;
-        if (c != i)
+
+        string s1 = q.front();
+        if (stoll(s1) % n == 0)
         {
-            v.pb(tmp);
-            tmp = "";
-            c = i;
+            cout << s1 << endl;
+            return;
         }
-        tmp += i;
+        q.pop();
+        // cout << s1 << "\n";
+        string s2 = s1;
+        q.push(s1.append("0"));
+        q.push(s2.append("9"));
     }
-    for (auto i : v)
-        cout << i << " ";
-    // if (m.size() == 1)
-    // {
-    //     cout << a * s.size() + b << endl;
-    // }
-    // else if (a < b)
-    // {
-    //     cout << (a + b) * s.size() << endl;
-    // }
-    // else
-    // {
-    //     if (a > 0)
-    //     {
-    //     }
-    // }
 }
 
 int main()
@@ -66,11 +50,11 @@ int main()
     faster();
     int test = 1;
     cin >> test;
-    clear();
+    // clean();
     while (test--)
     {
         solve();
     }
-    pause();
+    // pause();
     return 0;
 }
