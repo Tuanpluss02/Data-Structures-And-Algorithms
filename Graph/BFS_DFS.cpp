@@ -92,7 +92,7 @@ void testDFS()
     DFS(start, finish);
     if (path.back() == finish)
     {
-        cout << "DFS path " << start << "->" << finish << " : ";
+        cout << "path " << start << "->" << finish << "using DFS: ";
         for (auto i : path)
         {
             cout << i << " ";
@@ -129,15 +129,15 @@ void reset()
 
 int main()
 {
+    int u, v;
+    cin >> u >> v;
     cin >> vertices >> edges;
     for (int i = 0; i < edges; i++)
     {
-        int u, v;
-        cin >> u >> v;
         Graph[u].push_back(v);
         Graph[v].push_back(u);
+        finish = vertices;
     }
-    finish = vertices;
     cin >> start;
     cin >> finish;
     // test BFS and DFS
