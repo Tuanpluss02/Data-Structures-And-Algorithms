@@ -21,42 +21,62 @@
 #define pause() system("pause");
 
 using namespace std;
-
-ll f[45];
-void init()
+string nextBin(string &num)
 {
-    f[0] = 1;
-    f[1] = 1;
-    For(i, 0, 46)
+    string s = num;
+    int l = num.size();
+    for (int i = l - 1; i >= 0; i--)
     {
-        f[i] = f[i - 1] + f[i - 2];
+        if (num[i] == '0')
+        {
+            num[i] = '1';
+            break;
+        }
+        else
+            num[i] = '0';
+        if (i < 0)
+            num = "1" + num;
     }
+    return num;
 }
 
-ll cal(ll n, ll sum, ll i)
+vector<string> binGen(vector<string> &v, int x)
 {
-    if (n == 0)
-        return 1;
-    if (n == sum)
-        return 1;
-    if (sum > n)
-        return 0;
-    return cal(n, sum + f[i - 1], i - 1) + cal(n - f[i - 1], sum, i - 1);
+    string s(x, '0');
+    v.pb(s);
+    For(i, 0, pow(2, x))
+    {
+        v.pb(nextBin(s));
+    }
+    return v;
 }
+
 void solve()
 {
-    ll n;
-    cin >> n;
-    ll i = 0;
-    while (f[i] <= n)
-        i++;
-    cout << cal(n, 0, i - 1) << endl;
+    string s;
+    cin >> s;
+    int x = count(s.begin(), s.end(), '?');
+    vector<string> v;
+    v = binGen(v, x);
+    for (int i = 0; i < v.size() - 1; i++)
+    {
+        int idx = 0;
+        for (char j : s)
+        {
+            if (j == '?')
+            {
+                cout << v[i][idx++];
+            }
+            else
+                cout << j;
+        }
+        cout << endl;
+    }
 }
 
 int main()
 {
     faster();
-    init();
     int test = 1;
     cin >> test;
     // clean();
