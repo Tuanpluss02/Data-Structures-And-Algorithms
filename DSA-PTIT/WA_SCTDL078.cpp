@@ -22,28 +22,24 @@
 
 using namespace std;
 
-string nexBin(string s)
+int process(int n, int m, int k)
 {
-  for (int i = s.size(); i >= 0; i--)
-  {
-    if (s[i] == '0')
-    {
-      s[i] = '1';
-      break;
-    }
-    else
-    {
-      s[i] = '0';
-    }
-  }
-  return s;
+  double x = m * log10(n);
+  double frac = x - floor(x);
+  int intt = floor(x);
+
+  double y = pow(10, frac);
+  double z = pow(10, k - 1);
+
+  int res = floor(z * y);
+  return res;
 }
 
 void solve()
 {
-  string s;
-  cin >> s;
-  cout << nexBin(s) << endl;
+  int n, m, k;
+  cin >> n >> m >> k;
+  cout << process(n, m, k) << endl;
 }
 
 int main()
