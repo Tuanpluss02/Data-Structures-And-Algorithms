@@ -1,4 +1,4 @@
-#include "SearchAlgorithm.cpp"
+#include "search_algorithm.cpp"
 #include <chrono>
 
 int main()
@@ -8,7 +8,7 @@ int main()
     {
         arr.push_back(i);
     }
-    int target = 5000000 - 2;
+    int target = 1000;
 
     // Ternary search recursion
     auto start = chrono::high_resolution_clock::now();
