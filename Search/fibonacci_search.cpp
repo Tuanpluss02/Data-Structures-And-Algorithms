@@ -1,7 +1,8 @@
-#include "SearchAlgorithm.hpp"
+#include <bits/stdc++.h>
+using namespace std;
 
 template <typename T>
-long SearchAlgorithm<T>::fibonacci_search_type1(vector<T> &arr, T target)
+long fibonacci_search_type1(vector<T> &arr, T target)
 {
     if (arr.empty())
         throw invalid_argument("Vector is empty!");
@@ -50,7 +51,7 @@ void generateFibonacci(vector<long> &fib, long maxSize)
 }
 
 template <typename T>
-long SearchAlgorithm<T>::fibonacci_search_type2(vector<T> &arr, T target)
+long fibonacci_search_type2(vector<T> &arr, T target)
 {
     long n = arr.size();
     vector<long> fib;

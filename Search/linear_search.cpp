@@ -1,7 +1,8 @@
-#include "SearchAlgorithm.hpp"
+#include <bits/stdc++.h>
+using namespace std;
 
 template <typename T>
-long SearchAlgorithm<T>::linear_search(vector<T> &arr, T target)
+long linear_search(vector<T> &arr, T target)
 {
     for (long i = 0; i < arr.size(); i++)
     {

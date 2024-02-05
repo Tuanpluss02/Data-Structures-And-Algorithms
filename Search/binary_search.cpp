@@ -1,7 +1,8 @@
-#include "SearchAlgorithm.hpp"
+#include <bits/stdc++.h>
+using namespace std;
 
 template <typename T>
-long SearchAlgorithm<T>::binary_search_no_recursion(vector<T> &arr, T target, long start, long end)
+long binary_search_no_recursion(vector<T> &arr, T target, long start, long end)
 {
     long size = arr.size();
     if (arr.empty())
@@ -22,7 +23,7 @@ long SearchAlgorithm<T>::binary_search_no_recursion(vector<T> &arr, T target, lo
 }
 
 template <typename T>
-long SearchAlgorithm<T>::binary_search_recursion(vector<T> &arr, T target, long start, long end)
+long binary_search_recursion(vector<T> &arr, T target, long start, long end)
 {
     long size = arr.size();
     if (arr.empty())

@@ -1,7 +1,8 @@
-#include "SearchAlgorithm.hpp"
+#include <bits/stdc++.h>
+using namespace std;
 
 template <typename T>
-long SearchAlgorithm<T>::interpolation_search(vector<T> &arr, T target, long start, long end)
+long interpolation_search(vector<T> &arr, T target, long start, long end)
 {
     if (arr.empty())
         throw invalid_argument("Vector is empty!");

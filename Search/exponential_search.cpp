@@ -1,7 +1,8 @@
-#include "SearchAlgorithm.hpp"
+#include <bits/stdc++.h>
+using namespace std;
 
 template <typename T>
-long SearchAlgorithm<T>::exponential_search(vector<T> &arr, T target)
+long exponential_search(vector<T> &arr, T target)
 {
     long size = arr.size();
     if (arr.empty())

@@ -1,7 +1,8 @@
-#include "SearchAlgorithm.hpp"
+#include <bits/stdc++.h>
+using namespace std;
 
 template <typename T>
-long SearchAlgorithm<T>::ternary_search_recursion(vector<T> &arr, T target, long start, long end)
+long ternary_search_recursion(vector<T> &arr, T target, long start, long end)
 {
     long size = arr.size();
     if (arr.empty())
@@ -27,7 +28,7 @@ long SearchAlgorithm<T>::ternary_search_recursion(vector<T> &arr, T target, long
 }
 
 template <typename T>
-long SearchAlgorithm<T>::ternary_search_no_recursion(vector<T> &arr, T target, long start, long end)
+long ternary_search_no_recursion(vector<T> &arr, T target, long start, long end)
 {
     if (arr.empty())
         throw invalid_argument("Vector is empty!");
