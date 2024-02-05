@@ -2,24 +2,24 @@
 using namespace std;
 
 template <typename T>
-struct Node
+struct BSTNode
 {
     T data;
-    Node *left;
-    Node *right;
+    BSTNode *left;
+    BSTNode *right;
 };
 
 template <typename T>
-Node<T> *createNode(T value)
+BSTNode<T> *createNode(T value)
 {
-    Node<T> *newNode = new Node<T>();
+    BSTNode<T> *newNode = new BSTNode<T>();
     newNode->data = value;
     newNode->left = newNode->right = nullptr;
     return newNode;
 }
 
 template <typename T>
-Node<T> *searchBST(Node<T> *root, T value)
+BSTNode<T> *searchBST(BSTNode<T> *root, T value)
 {
     if (root == nullptr || root->data == value)
         return root;
@@ -31,7 +31,7 @@ Node<T> *searchBST(Node<T> *root, T value)
 }
 
 template <typename T>
-Node<T> *insertNode(Node<T> *root, T value)
+BSTNode<T> *insertNode(BSTNode<T> *root, T value)
 {
     if (root == nullptr)
         return createNode(value);
@@ -45,7 +45,7 @@ Node<T> *insertNode(Node<T> *root, T value)
 }
 
 template <typename T>
-Node<T> *deleteNode(Node<T> *root, T value)
+BSTNode<T> *deleteNode(BSTNode<T> *root, T value)
 {
     if (root == nullptr)
         return root;
@@ -58,18 +58,18 @@ Node<T> *deleteNode(Node<T> *root, T value)
     {
         if (root->left == nullptr)
         {
-            Node<T> *temp = root->right;
+            BSTNode<T> *temp = root->right;
             delete root;
             return temp;
         }
         else if (root->right == nullptr)
         {
-            Node<T> *temp = root->left;
+            BSTNode<T> *temp = root->left;
             delete root;
             return temp;
         }
 
-        Node<T> *temp = minValueNode(root->right);
+        BSTNode<T> *temp = minValueNode(root->right);
         root->data = temp->data;
         root->right = deleteNode(root->right, temp->data);
     }
@@ -78,15 +78,15 @@ Node<T> *deleteNode(Node<T> *root, T value)
 }
 
 template <typename T>
-Node<T> *minValueNode(Node<T> *node)
+BSTNode<T> *minValueNode(BSTNode<T> *node)
 {
-    Node<T> *current = node;
+    BSTNode<T> *current = node;
     while (current && current->left != nullptr)
         current = current->left;
     return current;
 }
 template <typename T>
-Node<T> *findMaxValue(Node<T> *root)
+BSTNode<T> *findMaxValue(BSTNode<T> *root)
 {
     if (root == nullptr)
         return nullptr;
@@ -98,7 +98,7 @@ Node<T> *findMaxValue(Node<T> *root)
 }
 
 template <typename T>
-Node<T> *findMinValue(Node<T> *root)
+BSTNode<T> *findMinValue(BSTNode<T> *root)
 {
     if (root == nullptr)
         return nullptr;
@@ -110,7 +110,7 @@ Node<T> *findMinValue(Node<T> *root)
 }
 
 template <typename T>
-void inorderTraversal(Node<T> *root)
+void inorderTraversal(BSTNode<T> *root)
 {
     if (root == nullptr)
         return;
@@ -120,7 +120,7 @@ void inorderTraversal(Node<T> *root)
     inorderTraversal(root->right);
 }
 template <typename T>
-int getHeight(Node<T> *root)
+int getHeight(BSTNode<T> *root)
 {
     if (root == nullptr)
         return 0;
@@ -132,7 +132,7 @@ int getHeight(Node<T> *root)
 }
 
 template <typename T>
-bool isBalanced(Node<T> *root)
+bool isBalanced(BSTNode<T> *root)
 {
     if (root == nullptr)
         return true;
@@ -146,13 +146,13 @@ bool isBalanced(Node<T> *root)
     return false;
 }
 template <typename T>
-Node<T> *findParent(Node<T> *root, T value)
+BSTNode<T> *findParent(BSTNode<T> *root, T value)
 {
     if (root == nullptr || root->data == value)
         return nullptr;
 
-    Node<T> *current = root;
-    Node<T> *parent = nullptr;
+    BSTNode<T> *current = root;
+    BSTNode<T> *parent = nullptr;
 
     while (current != nullptr)
     {
@@ -174,7 +174,7 @@ Node<T> *findParent(Node<T> *root, T value)
 }
 int main()
 {
-    Node<int> *root = createNode(8);
+    BSTNode<int> *root = createNode(8);
     root->left = createNode(3);
     root->right = createNode(10);
     root->left->left = createNode(1);
@@ -194,8 +194,8 @@ int main()
     inorderTraversal(root);
     cout << endl;
 
-    Node<int> *maxNode = findMaxValue(root);
-    Node<int> *minNode = findMinValue(root);
+    BSTNode<int> *maxNode = findMaxValue(root);
+    BSTNode<int> *minNode = findMinValue(root);
     if (maxNode)
         cout << "Max value: " << maxNode->data << endl;
     if (minNode)
@@ -207,7 +207,7 @@ int main()
         cout << "The tree is not balanced." << endl;
 
     int value = 40;
-    Node<int> *parent = findParent(root, value);
+    BSTNode<int> *parent = findParent(root, value);
     if (parent)
         cout << "Parent of " << value << ": " << parent->data << endl;
     else
