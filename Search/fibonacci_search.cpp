@@ -23,7 +23,7 @@
 using namespace std;
 
 template <typename T>
-long fibonacci_search_type1(vector<T> &arr, long target)
+long fibonacci_search_type1(vector<T> &arr, T target)
 {
     if (arr.empty())
         throw invalid_argument("Vector is empty!");
