@@ -33,7 +33,7 @@ public:
     long fibonacci_search_type1(vector<T> &arr, T target);
     long fibonacci_search_type2(vector<T> &arr, T target);
     long interpolation_search(vector<T> &arr, T target, long start, long end);
-    long hashmap_search(vector<T> &arr, T target);
+    long linear_search(vector<T> &arr, T target);
     long ternary_search_recursion(vector<T> &arr, T target, long start, long end);
     long ternary_search_no_recursion(vector<T> &arr, T target, long start, long end);
     long exponential_search(vector<T> &arr, T target);

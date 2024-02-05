@@ -9,7 +9,7 @@ int main()
     {
         arr.push_back(i);
     }
-    int target = -1;
+    int target = 5000000 - 2;
 
     // Ternary search recursion
     auto start = chrono::high_resolution_clock::now();
@@ -51,12 +51,12 @@ int main()
     cout << "Binary search no recursion: " << result5 << "\n";
     cout << "Time taken: " << duration5.count() << " microseconds\n\n";
 
-    // Hashmap search
+    // Linear search
     start = chrono::high_resolution_clock::now();
-    int result6 = searcher.hashmap_search(arr, target);
+    int result6 = searcher.linear_search(arr, target);
     end = chrono::high_resolution_clock::now();
     auto duration6 = chrono::duration_cast<chrono::microseconds>(end - start);
-    cout << "Hashmap search: " << result6 << "\n";
+    cout << "Linear search: " << result6 << "\n";
     cout << "Time taken: " << duration6.count() << " microseconds\n\n";
 
     return 0;

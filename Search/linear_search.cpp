@@ -1,7 +1,7 @@
 #include "SearchAlgorithm.hpp"
 
 template <typename T>
-long SearchAlgorithm<T>::hashmap_search(vector<T> &arr, T target)
+long SearchAlgorithm<T>::linear_search(vector<T> &arr, T target)
 {
     unordered_map<T, long> hashmap;
     for (long i = 0; i < arr.size(); i++)
