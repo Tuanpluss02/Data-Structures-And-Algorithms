@@ -25,7 +25,7 @@ int main()
     }
     vector<long> arrT = arr;
     cout << "Vector size: " << arr.size();
-    cout << "\n\n";
+    cout << "\n------------------------------------\n";
 
     vector<pair<string, chrono::microseconds>> sortDurations;
 
