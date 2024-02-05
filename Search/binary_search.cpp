@@ -3,9 +3,10 @@
 template <typename T>
 long SearchAlgorithm<T>::binary_search_no_recursion(vector<T> &arr, T target, long start, long end)
 {
+    long size = arr.size();
     if (arr.empty())
         throw invalid_argument("Vector is empty!");
-    if (start < 0 || end >= arr.size())
+    if (start < 0 || end >= size)
         throw invalid_argument("Start or end index is invalid!");
     while (start <= end)
     {
@@ -23,9 +24,10 @@ long SearchAlgorithm<T>::binary_search_no_recursion(vector<T> &arr, T target, lo
 template <typename T>
 long SearchAlgorithm<T>::binary_search_recursion(vector<T> &arr, T target, long start, long end)
 {
+    long size = arr.size();
     if (arr.empty())
         throw invalid_argument("Vector is empty!");
-    if (start < 0 || end >= arr.size())
+    if (start < 0 || end >= size)
         throw invalid_argument("Start or end index is invalid!");
     if (start > end)
         return -1;
