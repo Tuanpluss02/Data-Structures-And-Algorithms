@@ -1,0 +1,6 @@
+[submodule "Open-coding-PTIT"]
+	path = Open-coding-PTIT
+	url = https://github.com/Tuanpluss02/Open-coding-PTIT.git
+[submodule "DSA-PTIT"]
+	path = DSA-PTIT
+	url = https://github.com/Tuanpluss02/DSA-PTIT.git
