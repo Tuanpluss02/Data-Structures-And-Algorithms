@@ -18,3 +18,19 @@ void insertion_sort(vector<T> &arr)
         arr[j + 1] = key;
     }
 }
+
+template <typename T>
+void insertion_sort(vector<T> &arr, long left, long right)
+{
+    for (long i = left + 1; i <= right; i++)
+    {
+        T key = arr[i];
+        long j = i - 1;
+        while (j >= left && arr[j] > key)
+        {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
