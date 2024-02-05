@@ -10,5 +10,6 @@
 #include "counting_sort.cpp"
 #include "tim_sort.cpp"
 #include "radix_sort.cpp"
+#include "bucket_sort.cpp"
 
 #endif

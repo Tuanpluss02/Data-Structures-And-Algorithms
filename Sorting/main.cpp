@@ -65,6 +65,13 @@ int main()
 
     arr = arrT;
     start = chrono::high_resolution_clock::now();
+    bucket_sort(arr, arr.size() / 1000);
+    end = chrono::high_resolution_clock::now();
+    duration = chrono::duration_cast<chrono::microseconds>(end - start);
+    sortDurations.push_back({"Bucket sort", duration});
+
+    arr = arrT;
+    start = chrono::high_resolution_clock::now();
     counting_sort(arr);
     end = chrono::high_resolution_clock::now();
     duration = chrono::duration_cast<chrono::microseconds>(end - start);
